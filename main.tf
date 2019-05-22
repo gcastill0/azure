@@ -9,7 +9,7 @@ variable "location" {
 
 variable "windows_dns_prefix" {
   description = "DNS prefix to add to to public IP address for Windows VM"
-  default = "gcdemo"
+  default = "gilberto"
 }
 
 variable "admin_password" {
