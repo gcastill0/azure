@@ -2,6 +2,13 @@ terraform {
   required_version = ">= 0.11.1"
 }
 
+terraform {
+  backend "atlas" {
+    name = "gcastill0/azure-legacy"
+    address = "https://app.terraform.io" # optional
+  }
+}
+
 variable "location" {
   description = "Azure location in which to create resources"
   default = "East US"
