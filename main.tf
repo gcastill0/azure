@@ -3,10 +3,12 @@ terraform {
   }
 
 data "terraform_remote_state" "azure_master" {
-  backend "atlas" {
+  backend = "atlas"
+  config {
     name = "gcastill0/azure-legacy"
-    address = "https://app.terraform.io" # optional
+#    name = "${var.tfe_organization}/${var.k8s_cluster_workspace}"
   }
+
 }
 
 variable "location" {
