@@ -29,9 +29,10 @@ variable "admin_password" {
 module "windowsserver" {
   source              = "Azure/compute/azurerm"
   version             = "1.1.5"
+  count               = 1
   location            = "${data.terraform_remote_state.azure_master.azure_resource_name_location}"
   resource_group_name = "${data.terraform_remote_state.azure_master.azure_resource_name_baseline}"
-  vm_hostname         = "pwc-ptfe"
+  vm_hostname         = "pwc-ptfe-${count.index}"
   admin_password      = "${var.admin_password}"
   vm_os_simple        = "WindowsServer"
   public_ip_dns       = ["${var.windows_dns_prefix}"]
