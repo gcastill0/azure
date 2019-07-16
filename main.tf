@@ -1,5 +1,8 @@
 terraform {
   required_version = ">= 0.11.1"
+  }
+
+data "terraform_remote_state" "azure_master" {
   backend "atlas" {
     name = "gcastill0/azure-legacy"
     address = "https://app.terraform.io" # optional
